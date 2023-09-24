@@ -12,7 +12,7 @@ public class TicketMachine {
 
     private int valor;
     private int saldo;
-    protected int[] papelMoeda = {2, 5, 10, 20, 50, 100};
+    private int[] papelMoeda = {2, 5, 10, 20, 50, 100};
 
     public TicketMachine(int valor) {
         this.valor = valor;
