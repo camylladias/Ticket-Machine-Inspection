@@ -11,7 +11,7 @@ import java.util.Iterator;
 public class TicketMachine {
 
     private int valor;
-    protected int saldo;
+    private int saldo;
     protected int[] papelMoeda = {2, 5, 10, 20, 50, 100};
 
     public TicketMachine(int valor) {
