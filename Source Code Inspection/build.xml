@@ -1,15 +1,39 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- You may freely edit this file. See commented blocks below for -->
-<!-- some examples of how to customize the build. -->
-<!-- (If you delete it and reopen the project it will be recreated.) -->
-<!-- By default, only the Clean and Build commands use this build script. -->
-<!-- Commands such as Run, Debug, and Test only use this build script if -->
-<!-- the Compile on Save feature is turned off for the project. -->
-<!-- You can turn off the Compile on Save (or Deploy on Save) setting -->
-<!-- in the project's Project Properties dialog box.-->
 <project name="Source_Code_Inspection" default="default" basedir=".">
     <description>Builds, tests, and runs the project Source Code Inspection.</description>
     <import file="nbproject/build-impl.xml"/>
+
+    <!-- Define as propriedades para os diretórios de código-fonte e teste -->
+    <property name="src.dir" value="src"/>
+    <property name="test.dir" value="test"/>
+    <property name="lib.dir" value="lib"/>
+
+    <!-- Define o classpath incluindo o JUnit e outros JARs necessários -->
+    <path id="classpath">
+        <fileset dir="${lib.dir}" includes="**/*.jar"/>
+    </path>
+
+    <!-- Target para compilar as classes de teste -->
+    <target name="compile-tests" depends="jar">
+        <javac srcdir="${test.dir}" destdir="${build.classes.dir}" classpathref="classpath"/>
+    </target>
+
+    <!-- Target para executar os testes unitários -->
+    <target name="run-tests" depends="compile-tests">
+        <junit printsummary="yes" haltonfailure="no">
+            <classpath>
+                <path refid="classpath"/>
+                <pathelement path="${build.classes.dir}"/>
+            </classpath>
+            <formatter type="brief" usefile="false"/>
+            <batchtest fork="yes">
+                <fileset dir="${test.dir}" includes="**/*Test.java"/>
+            </batchtest>
+        </junit>
+    </target>
+
+    <!-- Targets e comentários padrão do NetBeans -->
+
     <!--
 
     There exist several targets which are by default empty and which can be 
@@ -70,4 +94,5 @@
     nbproject/build-impl.xml file. 
 
     -->
+
 </project>
