@@ -98,6 +98,11 @@
                             <!-- no need to specify files, inferred automatically, but you can if you want -->
 
                             <!-- apply a specific flavor of google-java-format and reflow long strings -->
+                            <includes>
+                                <include>src/**/*.java</include>
+                                <include>srcTest/**/*.java</include>
+                            </includes>
+
                             <googleJavaFormat>
                                 <version>1.8</version>
                                 <style>AOSP</style>
