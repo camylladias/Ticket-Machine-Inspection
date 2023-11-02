@@ -1,5 +1,5 @@
-import org.junit.jupiter.api.Test;
-import static org.junit.jupiter.api.Assertions.*;
+import org.junit.Test;
+import static org.junit.Assertions.*;
 package br.calebe.ticketmachine.core;
 
 import java.util.Iterator;
