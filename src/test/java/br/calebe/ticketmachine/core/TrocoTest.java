@@ -1,14 +1,15 @@
 package br.calebe.ticketmachine.core;
+
 import org.junit.Test;
-import static org.junit.Assertions.*;
+import static org.junit.Assert.*;
 
 
 import java.util.Iterator;
 
-public class TrocoTest {
+class TrocoTest {
 
     @Test
-    public void testConstructor() {
+    void testConstructor() {
         Troco troco = new Troco(72); // Exemplo de valor
         assertNotNull(troco.getIterator());
     }
