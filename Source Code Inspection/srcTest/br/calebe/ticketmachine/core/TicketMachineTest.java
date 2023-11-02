@@ -5,23 +5,23 @@ import org.junit.Test;
 import static org.junit.Assertions.*;
 
 
-class TicketMachineTest {
+public class TicketMachineTest {
 
     @Test
-    void testConstructor() {
+    public void testConstructor() {
         TicketMachine machine = new TicketMachine(50);
         assertEquals(0, machine.getSaldo());
     }
 
     @Test
-    void testInserirValido() throws PapelMoedaInvalidaException, PapelMoedaInvalidaException {
+    public void testInserirValido() throws PapelMoedaInvalidaException, PapelMoedaInvalidaException {
         TicketMachine machine = new TicketMachine(50);
         machine.inserir(10);
         assertEquals(10, machine.getSaldo());
     }
 
     @Test
-    void testInserirInvalido() {
+    public void testInserirInvalido() {
         TicketMachine machine = new TicketMachine(50);
         assertThrows(PapelMoedaInvalidaException.class, () -> {
             machine.inserir(3); // Valor inválido
@@ -29,14 +29,14 @@ class TicketMachineTest {
     }
 
     @Test
-    void testImprimirSaldoSuficiente() throws SaldoInsuficienteException, PapelMoedaInvalidaException, SaldoInsuficienteException {
+    public void testImprimirSaldoSuficiente() throws SaldoInsuficienteException, PapelMoedaInvalidaException, SaldoInsuficienteException {
         TicketMachine machine = new TicketMachine(50);
         machine.inserir(50);
         assertNotNull(machine.imprimir());
     }
 
     @Test
-    void testImprimirSaldoInsuficiente() {
+    public void testImprimirSaldoInsuficiente() {
         TicketMachine machine = new TicketMachine(50);
         assertThrows(SaldoInsuficienteException.class, () -> {
             machine.imprimir();

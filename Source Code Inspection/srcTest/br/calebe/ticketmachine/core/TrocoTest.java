@@ -5,10 +5,10 @@ import static org.junit.Assertions.*;
 
 import java.util.Iterator;
 
-class TrocoTest {
+public class TrocoTest {
 
     @Test
-    void testConstructor() {
+    public void testConstructor() {
         Troco troco = new Troco(72); // Exemplo de valor
         assertNotNull(troco.getIterator());
     }
